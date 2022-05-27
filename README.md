@@ -12,11 +12,13 @@ commands on a Windows DNS server to enable dns-01 authentication.
 
 # certbot auth hook
 
-Save `windows-dc-auth-hook.ps1` to `/etc/letsencrypt` and change the following variables:
+Save `certbot-dns-windows.ps1` to `/etc/letsencrypt` and change the following variables:
 
 - `$zone`: The name of the forward lookup zone
 - `$dnsServerHostName`: The fully qualified Windows DNS server we're logging in to
 - `$userName`: The name of the administrator user used for a login
+
+Important: Make the `certbot-dns-windows.ps1` script executable with: `chmod 755 /etc/letsencrypt/certbot-dns-windows.ps1`.
 
 # certbot command
 
@@ -41,8 +43,8 @@ sudo \
     run \
       --installer nginx                  \
       --authenticator manual             \
-      --manual-auth-hook "/etc/letsencrypt/windows-dc-auth-hook.ps1" \
-      --manual-cleanup-hook "/etc/letsencrypt/windows-dc-auth-hook.ps1 --remove" \
+      --manual-auth-hook "/etc/letsencrypt/certbot-dns-windows.ps1" \
+      --manual-cleanup-hook "/etc/letsencrypt/certbot-dns-windows.ps1 --remove" \
       -d \*.your.intern.domain.com       \
       --cert-name wildcard-cert-name     \
       --preferred-challenges dns         \
