@@ -58,7 +58,7 @@ sudo \
 
 Symptom: The challenge simply doesn't work and you see lots of messages in the step-ca log like `There was a problem with a DNS query during identifier validation`
 
-Explanation: The DNS record lookup uses systemd-resolved which caches DNS requests. This, the ACME CA (like step-ca) never sees the newly created TXT records.
+Explanation: The DNS record lookup uses systemd-resolved which caches DNS requests. Thus, the ACME CA (like step-ca) never sees the newly created TXT records.
 
 Solution: Ensure that the ACME CA queries the Windows DNS server directly.
 
