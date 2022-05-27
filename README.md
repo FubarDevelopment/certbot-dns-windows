@@ -1,3 +1,5 @@
+# TL/DR
+
 This is a PowerShell script that can be used as manual auth and cleanup hook,
 and executes the necessary [dnscmd](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/dnscmd)
 commands on a Windows DNS server to enable dns-01 authentication.
